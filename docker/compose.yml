@@ -1,0 +1,20 @@
+version: '3'
+services:
+  train:
+    image: train:v1
+    ports:
+      - "8000:80"
+    volumes:
+      - "trainvolume"
+  movies:
+    image: movies:v1
+    ports:
+      - "8001:80"
+    volumes:
+      - "movievolume"
+  recharge:
+    image: recharge:v1
+    ports:
+      - "8002:80"
+    volumes:
+      - "rechargevolume"
