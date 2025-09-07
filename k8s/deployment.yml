@@ -1,19 +1,20 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp-deployment
+  labels:
+    app: swiggy
+  name: swiggy-deploy
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
-      app: myapp
+      app: swiggy
   template:
     metadata:
       labels:
-        app: myapp
+        app: swiggy
     spec:
       containers:
-      - name: myapp
-        image: myapp:latest
-        ports:
-        - containerPort: 8080
+      - name: cont1
+        image: nginx
