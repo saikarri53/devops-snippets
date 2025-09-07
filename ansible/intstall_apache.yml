@@ -1,1 +1,10 @@
+- hosts: appservers
+  become: yes
+  tasks:
+    - name: Copy artifact
+      copy:
+        src: /tmp/myapp.jar
+        dest: /opt/myapp/myapp.jar
 
+    - name: Start app
+      command: java -jar /opt/myapp/myapp.jar
