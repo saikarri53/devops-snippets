@@ -1,1 +1,20 @@
-
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+        stage('Docker Build') {
+            steps {
+                sh 'docker build -t myapp:latest .'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'ansible-playbook ansible/deploy_app.yml'
+            }
+        }
+    }
+}
