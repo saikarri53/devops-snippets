@@ -1,0 +1,10 @@
+- hosts: all
+  tasks:
+    - name: installing java
+      yum: name=java-1.8.0-openjdk state=present
+
+    - name: installing tree
+      yum: name=tree state=present
+
+    - name: installing docker
+      action: yum name=docker state=present
